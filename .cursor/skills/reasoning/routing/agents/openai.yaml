@@ -1,0 +1,4 @@
+interface:
+  display_name: "Model Routing"
+  short_description: "Route bounded tasks by complexity and measured model cost"
+  default_prompt: "Use $routing to define bounded routing for routine and complex tasks."

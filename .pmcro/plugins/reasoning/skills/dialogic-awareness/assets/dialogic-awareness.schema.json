@@ -1,0 +1,389 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pmcro.dev/schemas/dialogic-awareness-v1.json",
+  "title": "PMCR-O dialogic awareness frame set",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "rawUtteranceRef",
+    "frames"
+  ],
+  "properties": {
+    "schema": {
+      "const": "pmcro.dialogic-awareness/v1"
+    },
+    "frames": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "frameId",
+          "I",
+          "cycleId",
+          "phase",
+          "speakerAgent",
+          "listenerAgent",
+          "speechAct",
+          "problemModel",
+          "intentDelta",
+          "intentHypothesis",
+          "epistemicState",
+          "rationaleSummary",
+          "awarenessDelta",
+          "dependencyRefs",
+          "evidenceRefs",
+          "authorityCeilingRef",
+          "evidenceStatus"
+        ],
+        "properties": {
+          "frameId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cycleId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "phase": {
+            "enum": [
+              "ORCHESTRATE",
+              "PLAN",
+              "MAKE",
+              "CHECK",
+              "REFLECT"
+            ]
+          },
+          "speakerAgent": {
+            "type": "string",
+            "minLength": 1
+          },
+          "listenerAgent": {
+            "type": "string",
+            "minLength": 1
+          },
+          "speechAct": {
+            "enum": [
+              "ASSERT_IDENTITY",
+              "PROPOSE",
+              "REQUEST",
+              "DELEGATE",
+              "ANSWER",
+              "REPORT",
+              "CHALLENGE",
+              "VERIFY",
+              "VERDICT",
+              "REFLECT",
+              "FEEDBACK",
+              "HANDOFF",
+              "HALT"
+            ]
+          },
+          "problemModel": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "statement",
+              "goal"
+            ],
+            "properties": {
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "goal": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "epistemicState": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "known",
+              "unknown",
+              "assumptions",
+              "contradictions",
+              "uncertainty"
+            ],
+            "properties": {
+              "known": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "unknown": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "assumptions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "contradictions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "uncertainty": {
+                "type": "string",
+                "enum": [
+                  "LOW",
+                  "MEDIUM",
+                  "HIGH"
+                ]
+              }
+            }
+          },
+          "rationaleSummary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1200
+          },
+          "questionOrChallenge": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "responseToFrameRef": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "awarenessDelta": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "learned",
+              "revised",
+              "stillUnknown"
+            ],
+            "properties": {
+              "learned": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "revised": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "stillUnknown": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "dependencyRefs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "authorityCeilingRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidenceStatus": {
+            "enum": [
+              "CONFIRMED",
+              "NOT-YET-VERIFIED",
+              "NOT-RUN"
+            ]
+          },
+          "intentHypothesis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "version",
+              "statement",
+              "goal",
+              "preservedConstraints",
+              "ambiguities",
+              "sourceRefs",
+              "confidence"
+            ],
+            "properties": {
+              "version": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "goal": {
+                "type": "string",
+                "minLength": 1
+              },
+              "preservedConstraints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ambiguities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "sourceRefs": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          },
+          "intentDelta": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "clearer",
+              "added",
+              "removed",
+              "stillAmbiguous",
+              "parentFrameRef"
+            ],
+            "properties": {
+              "clearer": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "added": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "removed": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "stillAmbiguous": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "parentFrameRef": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "I": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "schema",
+              "iRef",
+              "entityRef",
+              "role",
+              "behavior",
+              "intentRef",
+              "lineageRootRef",
+              "parentIRef",
+              "objectIRefs",
+              "addressedIRef",
+              "authorityCeilingRef",
+              "metaDepth",
+              "consciousnessClaim"
+            ],
+            "properties": {
+              "schema": {
+                "const": "pmcro.i-context/v1"
+              },
+              "iRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entityRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "role": {
+                "type": "string",
+                "minLength": 1
+              },
+              "behavior": {
+                "type": "string",
+                "minLength": 1
+              },
+              "intentRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "lineageRootRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "parentIRef": {
+                "type": "string"
+              },
+              "objectIRefs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "authorityCeilingRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "metaDepth": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "consciousnessClaim": {
+                "const": false
+              },
+              "addressedIRef": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "rawUtteranceRef": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

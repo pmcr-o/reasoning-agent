@@ -1,0 +1,4 @@
+interface:
+  display_name: "Orchestrator and Workers"
+  short_description: "Define bounded orchestrator and specialist worker turns"
+  default_prompt: "Use $orchestrator-worker to define a bounded orchestrator and worker arrangement."

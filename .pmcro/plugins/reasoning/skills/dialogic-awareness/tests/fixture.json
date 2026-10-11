@@ -1,0 +1,654 @@
+{
+  "schema": "pmcro.dialogic-awareness/v1",
+  "frames": [
+    {
+      "frameId": "f1",
+      "cycleId": "c1",
+      "phase": "ORCHESTRATE",
+      "speakerAgent": "orchestrator",
+      "listenerAgent": "planner",
+      "speechAct": "DELEGATE",
+      "problemModel": {
+        "statement": "The user wants to understand how agents refine a problem by talking.",
+        "goal": "Produce the smallest validated dialogue surface."
+      },
+      "epistemicState": {
+        "known": [
+          "The lifecycle is PMCR-O.",
+          "Dialogue cannot grant authority."
+        ],
+        "unknown": [
+          "Which representation best exposes problem understanding?"
+        ],
+        "assumptions": [
+          "A compact visible frame is sufficient for the first pass."
+        ],
+        "contradictions": [],
+        "uncertainty": "MEDIUM"
+      },
+      "rationaleSummary": "Route the problem to Planner with the immutable intent and authority ceiling, asking for a minimal visible representation rather than target execution.",
+      "questionOrChallenge": "Planner, what is the minimum frame that makes problem understanding inspectable?",
+      "responseToFrameRef": null,
+      "awarenessDelta": {
+        "learned": [],
+        "revised": [],
+        "stillUnknown": [
+          "Best visible representation"
+        ]
+      },
+      "dependencyRefs": [],
+      "evidenceRefs": [
+        "protocol:thought-transfer"
+      ],
+      "authorityCeilingRef": "grant:demo",
+      "evidenceStatus": "CONFIRMED",
+      "intentHypothesis": {
+        "version": 0,
+        "statement": "The user wants to understand how agents refine a problem by talking.",
+        "goal": "Produce the smallest validated dialogue surface.",
+        "preservedConstraints": [
+          "Preserve raw messy utterance as immutable provenance",
+          "Do not expose hidden chain-of-thought",
+          "Do not widen authority through interpretation"
+        ],
+        "ambiguities": [
+          "Which representation best exposes problem understanding?"
+        ],
+        "sourceRefs": [
+          "utterance:demo-001:raw"
+        ],
+        "confidence": 0.45
+      },
+      "intentDelta": {
+        "clearer": [],
+        "added": [],
+        "removed": [],
+        "stillAmbiguous": [
+          "Best visible representation"
+        ],
+        "parentFrameRef": null
+      },
+      "I": {
+        "schema": "pmcro.i-context/v1",
+        "iRef": "i:f1",
+        "entityRef": "orchestrator",
+        "role": "ORCHESTRATE",
+        "behavior": "DELEGATE",
+        "intentRef": "intent:demo-001:v0",
+        "lineageRootRef": "utterance:demo-001:raw",
+        "parentIRef": "",
+        "objectIRefs": [],
+        "authorityCeilingRef": "grant:demo",
+        "metaDepth": 0,
+        "consciousnessClaim": false,
+        "addressedIRef": "planner"
+      }
+    },
+    {
+      "frameId": "f2",
+      "cycleId": "c1",
+      "phase": "PLAN",
+      "speakerAgent": "planner",
+      "listenerAgent": "maker",
+      "speechAct": "PROPOSE",
+      "problemModel": {
+        "statement": "We need a frame that separates problem, evidence, uncertainty, rationale, and change in awareness.",
+        "goal": "Specify one bounded schema and renderer."
+      },
+      "epistemicState": {
+        "known": [
+          "Root intent must remain immutable.",
+          "Private chain-of-thought is excluded."
+        ],
+        "unknown": [
+          "Whether the renderer is readable enough for the user."
+        ],
+        "assumptions": [
+          "Readable transcript can be derived from structured frames."
+        ],
+        "contradictions": [],
+        "uncertainty": "LOW"
+      },
+      "rationaleSummary": "A typed frame makes the conversation inspectable and replayable while keeping the reasoning surface concise and evidence-bound.",
+      "questionOrChallenge": "Maker, implement only validation and rendering; do not infer missing reasoning.",
+      "responseToFrameRef": "f1",
+      "awarenessDelta": {
+        "learned": [
+          "Problem understanding needs explicit epistemic state and delta fields."
+        ],
+        "revised": [
+          "Dialogue is not merely utterance text; it is a dependency graph."
+        ],
+        "stillUnknown": [
+          "Human readability of the rendered transcript"
+        ]
+      },
+      "dependencyRefs": [
+        "f1"
+      ],
+      "evidenceRefs": [
+        "protocol:dialogic-thought-transfer"
+      ],
+      "authorityCeilingRef": "grant:demo",
+      "evidenceStatus": "CONFIRMED",
+      "intentHypothesis": {
+        "version": 1,
+        "statement": "We need a frame that separates problem, evidence, uncertainty, rationale, and change in awareness.",
+        "goal": "Specify one bounded schema and renderer.",
+        "preservedConstraints": [
+          "Preserve raw messy utterance as immutable provenance",
+          "Do not expose hidden chain-of-thought",
+          "Do not widen authority through interpretation"
+        ],
+        "ambiguities": [
+          "Whether the renderer is readable enough for the user."
+        ],
+        "sourceRefs": [
+          "utterance:demo-001:raw",
+          "f1"
+        ],
+        "confidence": 0.53
+      },
+      "intentDelta": {
+        "clearer": [
+          "Problem understanding needs explicit epistemic state and delta fields."
+        ],
+        "added": [
+          "Dialogue is not merely utterance text; it is a dependency graph."
+        ],
+        "removed": [],
+        "stillAmbiguous": [
+          "Human readability of the rendered transcript"
+        ],
+        "parentFrameRef": "f1"
+      },
+      "I": {
+        "schema": "pmcro.i-context/v1",
+        "iRef": "i:f2",
+        "entityRef": "planner",
+        "role": "PLAN",
+        "behavior": "PROPOSE",
+        "intentRef": "intent:demo-001:v1",
+        "lineageRootRef": "utterance:demo-001:raw",
+        "parentIRef": "i:f1",
+        "objectIRefs": [
+          "i:f1"
+        ],
+        "authorityCeilingRef": "grant:demo",
+        "metaDepth": 0,
+        "consciousnessClaim": false,
+        "addressedIRef": "maker"
+      }
+    },
+    {
+      "frameId": "f3",
+      "cycleId": "c1",
+      "phase": "MAKE",
+      "speakerAgent": "maker",
+      "listenerAgent": "checker",
+      "speechAct": "REPORT",
+      "problemModel": {
+        "statement": "The planned frame schema and renderer are implemented, but human readability is not independently verified.",
+        "goal": "Return implementation evidence without self-approval."
+      },
+      "epistemicState": {
+        "known": [
+          "The validator accepts the structured fixture.",
+          "The renderer produces addressed dialogue."
+        ],
+        "unknown": [
+          "Whether the dialogue sufficiently exposes problem understanding to a person."
+        ],
+        "assumptions": [
+          "Passing structural validation is not enough to prove usability."
+        ],
+        "contradictions": [],
+        "uncertainty": "MEDIUM"
+      },
+      "rationaleSummary": "Implementation evidence exists, but usability is a separate claim that Maker cannot certify.",
+      "questionOrChallenge": "Checker, verify both structural correctness and whether the rendered frame exposes problem, evidence, uncertainty, and awareness change.",
+      "responseToFrameRef": "f2",
+      "awarenessDelta": {
+        "learned": [
+          "A valid schema does not itself prove a useful reasoning surface."
+        ],
+        "revised": [],
+        "stillUnknown": [
+          "Independent usability/readability verdict"
+        ]
+      },
+      "dependencyRefs": [
+        "f2"
+      ],
+      "evidenceRefs": [
+        "test:fixture-validate",
+        "render:fixture"
+      ],
+      "authorityCeilingRef": "grant:demo",
+      "evidenceStatus": "CONFIRMED",
+      "intentHypothesis": {
+        "version": 2,
+        "statement": "The planned frame schema and renderer are implemented, but human readability is not independently verified.",
+        "goal": "Return implementation evidence without self-approval.",
+        "preservedConstraints": [
+          "Preserve raw messy utterance as immutable provenance",
+          "Do not expose hidden chain-of-thought",
+          "Do not widen authority through interpretation"
+        ],
+        "ambiguities": [
+          "Whether the dialogue sufficiently exposes problem understanding to a person."
+        ],
+        "sourceRefs": [
+          "utterance:demo-001:raw",
+          "f2"
+        ],
+        "confidence": 0.61
+      },
+      "intentDelta": {
+        "clearer": [
+          "A valid schema does not itself prove a useful reasoning surface."
+        ],
+        "added": [],
+        "removed": [],
+        "stillAmbiguous": [
+          "Independent usability/readability verdict"
+        ],
+        "parentFrameRef": "f2"
+      },
+      "I": {
+        "schema": "pmcro.i-context/v1",
+        "iRef": "i:f3",
+        "entityRef": "maker",
+        "role": "MAKE",
+        "behavior": "REPORT",
+        "intentRef": "intent:demo-001:v2",
+        "lineageRootRef": "utterance:demo-001:raw",
+        "parentIRef": "i:f2",
+        "objectIRefs": [
+          "i:f2"
+        ],
+        "authorityCeilingRef": "grant:demo",
+        "metaDepth": 0,
+        "consciousnessClaim": false,
+        "addressedIRef": "checker"
+      }
+    },
+    {
+      "frameId": "f4",
+      "cycleId": "c1",
+      "phase": "CHECK",
+      "speakerAgent": "checker",
+      "listenerAgent": "reflector",
+      "speechAct": "VERDICT",
+      "problemModel": {
+        "statement": "The surface is structurally correct, but the example does not yet demonstrate feedback returning through a new cycle.",
+        "goal": "Return LOOP with exact missing evidence."
+      },
+      "epistemicState": {
+        "known": [
+          "All required epistemic fields are visible.",
+          "Maker did not self-approve."
+        ],
+        "unknown": [
+          "Whether a prior agent challenge can become a later cycle dependency without phase jumping."
+        ],
+        "assumptions": [],
+        "contradictions": [
+          "The product claims strange-loop dialogue, but only one forward pass is demonstrated."
+        ],
+        "uncertainty": "LOW"
+      },
+      "rationaleSummary": "The current artifact proves visible reasoning frames but not the recursive feedback behavior required by Thought Transfer.",
+      "questionOrChallenge": "Reflector, preserve this missing proof as the earned constraint; do not repair it inside CHECK.",
+      "responseToFrameRef": "f3",
+      "awarenessDelta": {
+        "learned": [
+          "The missing evidence is specifically cross-cycle feedback reuse."
+        ],
+        "revised": [
+          "Structural PASS is insufficient for the stated strange-loop goal."
+        ],
+        "stillUnknown": [
+          "Cross-cycle feedback proof"
+        ]
+      },
+      "dependencyRefs": [
+        "f3"
+      ],
+      "evidenceRefs": [
+        "check:structure-pass",
+        "check:dialogue-gap"
+      ],
+      "authorityCeilingRef": "grant:demo",
+      "evidenceStatus": "CONFIRMED",
+      "intentHypothesis": {
+        "version": 3,
+        "statement": "The surface is structurally correct, but the example does not yet demonstrate feedback returning through a new cycle.",
+        "goal": "Return LOOP with exact missing evidence.",
+        "preservedConstraints": [
+          "Preserve raw messy utterance as immutable provenance",
+          "Do not expose hidden chain-of-thought",
+          "Do not widen authority through interpretation"
+        ],
+        "ambiguities": [
+          "Whether a prior agent challenge can become a later cycle dependency without phase jumping."
+        ],
+        "sourceRefs": [
+          "utterance:demo-001:raw",
+          "f3"
+        ],
+        "confidence": 0.69
+      },
+      "intentDelta": {
+        "clearer": [
+          "The missing evidence is specifically cross-cycle feedback reuse."
+        ],
+        "added": [
+          "Structural PASS is insufficient for the stated strange-loop goal."
+        ],
+        "removed": [],
+        "stillAmbiguous": [
+          "Cross-cycle feedback proof"
+        ],
+        "parentFrameRef": "f3"
+      },
+      "I": {
+        "schema": "pmcro.i-context/v1",
+        "iRef": "i:f4",
+        "entityRef": "checker",
+        "role": "CHECK",
+        "behavior": "VERDICT",
+        "intentRef": "intent:demo-001:v3",
+        "lineageRootRef": "utterance:demo-001:raw",
+        "parentIRef": "i:f3",
+        "objectIRefs": [
+          "i:f3"
+        ],
+        "authorityCeilingRef": "grant:demo",
+        "metaDepth": 0,
+        "consciousnessClaim": false,
+        "addressedIRef": "reflector"
+      }
+    },
+    {
+      "frameId": "f5",
+      "cycleId": "c1",
+      "phase": "REFLECT",
+      "speakerAgent": "reflector",
+      "listenerAgent": "orchestrator",
+      "speechAct": "REFLECT",
+      "problemModel": {
+        "statement": "The first cycle proved visibility but not recursive return of feedback.",
+        "goal": "Emit one unexecuted seed to prove cross-cycle dependency."
+      },
+      "epistemicState": {
+        "known": [
+          "The missing proof is cross-cycle feedback reuse."
+        ],
+        "unknown": [
+          "Whether the next cycle will preserve the original root intent while consuming the checker constraint."
+        ],
+        "assumptions": [],
+        "contradictions": [],
+        "uncertainty": "LOW"
+      },
+      "rationaleSummary": "The prior cycle becomes an object: its LOOP verdict is now evidence for a new cycle, not a reason to jump backward.",
+      "questionOrChallenge": "Orchestrator, if admitted, start a new cycle whose Planner explicitly depends on f4/f5.",
+      "responseToFrameRef": "f4",
+      "awarenessDelta": {
+        "learned": [
+          "The dialogue surface must demonstrate temporal/meta dependency, not only role-to-role speech."
+        ],
+        "revised": [
+          "The first implementation is a partial proof, not final completion."
+        ],
+        "stillUnknown": [
+          "Whether the next cycle closes the proof"
+        ]
+      },
+      "dependencyRefs": [
+        "f4"
+      ],
+      "evidenceRefs": [
+        "verdict:LOOP"
+      ],
+      "authorityCeilingRef": "grant:demo",
+      "evidenceStatus": "CONFIRMED",
+      "intentHypothesis": {
+        "version": 4,
+        "statement": "The first cycle proved visibility but not recursive return of feedback.",
+        "goal": "Emit one unexecuted seed to prove cross-cycle dependency.",
+        "preservedConstraints": [
+          "Preserve raw messy utterance as immutable provenance",
+          "Do not expose hidden chain-of-thought",
+          "Do not widen authority through interpretation"
+        ],
+        "ambiguities": [
+          "Whether the next cycle will preserve the original root intent while consuming the checker constraint."
+        ],
+        "sourceRefs": [
+          "utterance:demo-001:raw",
+          "f4"
+        ],
+        "confidence": 0.77
+      },
+      "intentDelta": {
+        "clearer": [
+          "The dialogue surface must demonstrate temporal/meta dependency, not only role-to-role speech."
+        ],
+        "added": [
+          "The first implementation is a partial proof, not final completion."
+        ],
+        "removed": [],
+        "stillAmbiguous": [
+          "Whether the next cycle closes the proof"
+        ],
+        "parentFrameRef": "f4"
+      },
+      "I": {
+        "schema": "pmcro.i-context/v1",
+        "iRef": "i:f5",
+        "entityRef": "reflector",
+        "role": "REFLECT",
+        "behavior": "REFLECT",
+        "intentRef": "intent:demo-001:v4",
+        "lineageRootRef": "utterance:demo-001:raw",
+        "parentIRef": "i:f4",
+        "objectIRefs": [
+          "i:f4"
+        ],
+        "authorityCeilingRef": "grant:demo",
+        "metaDepth": 1,
+        "consciousnessClaim": false,
+        "addressedIRef": "orchestrator"
+      }
+    },
+    {
+      "frameId": "f6",
+      "cycleId": "c2",
+      "phase": "ORCHESTRATE",
+      "speakerAgent": "orchestrator",
+      "listenerAgent": "planner",
+      "speechAct": "DELEGATE",
+      "problemModel": {
+        "statement": "A prior checked cycle found that cross-cycle feedback reuse is not yet demonstrated.",
+        "goal": "Prove one new-cycle Planner can consume the prior LOOP constraint without changing root intent."
+      },
+      "epistemicState": {
+        "known": [
+          "f4/f5 identify the exact missing proof.",
+          "The immutable root intent remains intent:demo-001."
+        ],
+        "unknown": [
+          "Whether Planner can express the revised plan as a dependency on prior frames."
+        ],
+        "assumptions": [
+          "The prior checker/reflection frames are admissible evidence for this demonstration."
+        ],
+        "contradictions": [],
+        "uncertainty": "LOW"
+      },
+      "rationaleSummary": "Admit a new bounded cycle because the prior Reflector emitted an earned next seed; do not reopen the old cycle.",
+      "questionOrChallenge": "Planner, treat f4/f5 as objects and produce the minimum revised plan that closes their missing proof.",
+      "responseToFrameRef": "f5",
+      "awarenessDelta": {
+        "learned": [
+          "The next cycle has a precise checked reason to exist."
+        ],
+        "revised": [],
+        "stillUnknown": [
+          "Planner response"
+        ]
+      },
+      "dependencyRefs": [
+        "f4",
+        "f5"
+      ],
+      "evidenceRefs": [
+        "verdict:LOOP",
+        "reflection:c1"
+      ],
+      "authorityCeilingRef": "grant:demo",
+      "evidenceStatus": "CONFIRMED",
+      "intentHypothesis": {
+        "version": 5,
+        "statement": "A prior checked cycle found that cross-cycle feedback reuse is not yet demonstrated.",
+        "goal": "Prove one new-cycle Planner can consume the prior LOOP constraint without changing root intent.",
+        "preservedConstraints": [
+          "Preserve raw messy utterance as immutable provenance",
+          "Do not expose hidden chain-of-thought",
+          "Do not widen authority through interpretation"
+        ],
+        "ambiguities": [
+          "Whether Planner can express the revised plan as a dependency on prior frames."
+        ],
+        "sourceRefs": [
+          "utterance:demo-001:raw",
+          "f5"
+        ],
+        "confidence": 0.85
+      },
+      "intentDelta": {
+        "clearer": [
+          "The next cycle has a precise checked reason to exist."
+        ],
+        "added": [],
+        "removed": [],
+        "stillAmbiguous": [
+          "Planner response"
+        ],
+        "parentFrameRef": "f5"
+      },
+      "I": {
+        "schema": "pmcro.i-context/v1",
+        "iRef": "i:f6",
+        "entityRef": "orchestrator",
+        "role": "ORCHESTRATE",
+        "behavior": "DELEGATE",
+        "intentRef": "intent:demo-001:v5",
+        "lineageRootRef": "utterance:demo-001:raw",
+        "parentIRef": "i:f5",
+        "objectIRefs": [
+          "i:f4",
+          "i:f5"
+        ],
+        "authorityCeilingRef": "grant:demo",
+        "metaDepth": 1,
+        "consciousnessClaim": false,
+        "addressedIRef": "planner"
+      }
+    },
+    {
+      "frameId": "f7",
+      "cycleId": "c2",
+      "phase": "PLAN",
+      "speakerAgent": "planner",
+      "listenerAgent": "maker",
+      "speechAct": "ANSWER",
+      "problemModel": {
+        "statement": "The revised plan must demonstrate that a current Planner-I can explicitly depend on the prior cycle as an object.",
+        "goal": "Add cross-cycle dependency evidence while leaving the root intent unchanged."
+      },
+      "epistemicState": {
+        "known": [
+          "f4/f5 are prior-cycle objects.",
+          "The current cycle is c2, not a resumed c1."
+        ],
+        "unknown": [],
+        "assumptions": [],
+        "contradictions": [],
+        "uncertainty": "LOW"
+      },
+      "rationaleSummary": "The strange loop is demonstrated when the current planning frame cites the prior Checker/Reflector frames as causal objects while preserving the original root intent and authority ceiling.",
+      "questionOrChallenge": "Maker, materialize only this dependency proof; do not alter the root intent or prior frames.",
+      "responseToFrameRef": "f6",
+      "awarenessDelta": {
+        "learned": [
+          "Cross-cycle dependency is the operational form of the linguistic strange loop."
+        ],
+        "revised": [
+          "Feedback is not a backward jump; it is an input to a newly admitted cycle."
+        ],
+        "stillUnknown": []
+      },
+      "dependencyRefs": [
+        "f4",
+        "f5",
+        "f6"
+      ],
+      "evidenceRefs": [
+        "protocol:thought-transfer",
+        "protocol:recursive-cascade"
+      ],
+      "authorityCeilingRef": "grant:demo",
+      "evidenceStatus": "CONFIRMED",
+      "intentHypothesis": {
+        "version": 6,
+        "statement": "The revised plan must demonstrate that a current Planner-I can explicitly depend on the prior cycle as an object.",
+        "goal": "Add cross-cycle dependency evidence while leaving the root intent unchanged.",
+        "preservedConstraints": [
+          "Preserve raw messy utterance as immutable provenance",
+          "Do not expose hidden chain-of-thought",
+          "Do not widen authority through interpretation"
+        ],
+        "ambiguities": [],
+        "sourceRefs": [
+          "utterance:demo-001:raw",
+          "f6"
+        ],
+        "confidence": 0.93
+      },
+      "intentDelta": {
+        "clearer": [
+          "Cross-cycle dependency is the operational form of the linguistic strange loop."
+        ],
+        "added": [
+          "Feedback is not a backward jump; it is an input to a newly admitted cycle."
+        ],
+        "removed": [],
+        "stillAmbiguous": [],
+        "parentFrameRef": "f6"
+      },
+      "I": {
+        "schema": "pmcro.i-context/v1",
+        "iRef": "i:f7",
+        "entityRef": "planner",
+        "role": "PLAN",
+        "behavior": "ANSWER",
+        "intentRef": "intent:demo-001:v6",
+        "lineageRootRef": "utterance:demo-001:raw",
+        "parentIRef": "i:f6",
+        "objectIRefs": [
+          "i:f4",
+          "i:f5",
+          "i:f6"
+        ],
+        "authorityCeilingRef": "grant:demo",
+        "metaDepth": 1,
+        "consciousnessClaim": false,
+        "addressedIRef": "maker"
+      }
+    }
+  ],
+  "rawUtteranceRef": "utterance:demo-001:raw"
+}

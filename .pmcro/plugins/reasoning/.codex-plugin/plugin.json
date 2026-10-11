@@ -1,0 +1,6 @@
+{
+  "name": "reasoning",
+  "version": "0.1.0",
+  "description": "Shipping reasoning controls from the 7 October 2026 report. Each skill defaults to the lightest setting and requires a cap.",
+  "skills": ["./skills/"]
+}

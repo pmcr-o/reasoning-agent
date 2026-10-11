@@ -1,0 +1,9 @@
+{
+  "family": "routing",
+  "default": "lightest",
+  "cap": 1,
+  "capName": "route",
+  "network": false,
+  "apiKey": false,
+  "modelInvocation": false
+}

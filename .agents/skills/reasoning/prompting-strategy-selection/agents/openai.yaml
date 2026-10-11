@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompting Strategy Selection"
+  short_description: "Compare prompting strategies against a measured baseline"
+  default_prompt: "Use $prompting-strategy-selection to choose a prompting strategy and specify its measured baseline comparison."

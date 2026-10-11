@@ -1,0 +1,16 @@
+{
+  "schema": "dotagents.manifest/v1",
+  "name": "reasoning-agent",
+  "owner": "pmcr-o",
+  "description": "Reasoning domain orchestrator for routing, checker patterns, effort, voting, tool loops, and test-time compute controls.",
+  "invocationField": "plugin",
+  "plugins": [
+    {
+      "name": "reasoning",
+      "source": "./.pmcro/plugins/reasoning",
+      "description": "reasoning capabilities owned by reasoning-agent"
+    }
+  ],
+  "canonical": ".pmcro",
+  "projection": ".agents"
+}

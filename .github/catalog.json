@@ -1,0 +1,58 @@
+{
+  "apiVersion": "pmcro.dev/v1",
+  "kind": "agent.catalog",
+  "id": "reasoning-agent",
+  "authority": "read-only discovery; execution requires route + grant + runtime",
+  "skills": [
+    {
+      "id": "checker",
+      "plugin": "reasoning",
+      "description": "Make a separate checker call with a required stop cap. The same call must not grade itself. USE FOR: an evaluator, a screening call, or a critic that is a different call from the call that produced the work. DO NOT USE FOR: the same call grading itself, treating a shared Windows account as a second principal, the pmcro check skill, voting, effort, tool-loop, orchestrator-worker, routing, or a paper-only family."
+    },
+    {
+      "id": "dialogic-awareness",
+      "plugin": "reasoning",
+      "description": "Build a visible inter-agent reasoning surface from PMCR-O dialogic frames: problem model, evidence, uncertainty, rationale summary, challenge/response, dependency edges, and awareness delta; never hidden chain-of-thought."
+    },
+    {
+      "id": "effort",
+      "plugin": "reasoning",
+      "description": "Choose the reasoning or thinking effort for one LLM call on OpenAI, Azure Foundry, Anthropic, Google Vertex, or xAI. USE FOR: reasoning.effort or reasoning_effort, output_config.effort, thinking_level, thinking_budget, questions about xhigh or max effort, lowering latency or cost by lowering effort, a none or minimal setting returning HTTP 400, deciding between a plain call and a reasoning call. DO NOT USE FOR: multi-call agent loops (use orchestrator-worker, routing, or voting), prompt wording or chain-of-thought instructions (use prompting-strategy-selection), which parameter a specific model accepts or how it bills (use test-time-compute-controls)."
+    },
+    {
+      "id": "intent-refinement",
+      "plugin": "reasoning",
+      "description": "Mandatory Orchestrator-owned refinement of a raw PMCR-O seed into exact-source-grounded validated intent claims after ORCHESTRATE activates and before admission/routing/PLAN."
+    },
+    {
+      "id": "orchestrator-worker",
+      "plugin": "reasoning",
+      "description": "Run one orchestrator and its workers only with a required finite turn cap. USE FOR: orchestrator-workers, a manager that calls specialists, and a worker turn cap. DO NOT USE FOR: reasoning effort (effort), a native tool loop (tool-loop), routing, a separate checker call (checker), one-shot votes (voting), debate, or mixture-of-agents."
+    },
+    {
+      "id": "prompting-strategy-selection",
+      "plugin": "reasoning",
+      "description": "Choose a prompting strategy for LLM calls in 2026: whether to keep or drop chain-of-thought once a model has a reasoning mode, when caller-side decomposition or explicit prompt chaining helps, and where self-consistency, Tree of Thoughts, Reflexion, least-to-most, or ReAct still apply. USE FOR: think step by step or explain your reasoning prompts, chain-of-thought versus a reasoning model, majority-vote sampling, Tree of Thoughts or graph-of-thoughts search, Reflexion retry loops, least-to-most decomposition, Thought Action Observation loops, deciding whether to keep step-by-step instructions. DO NOT USE FOR: effort tier values (use effort), agent loop bounds or checker design (use orchestrator-worker, routing, voting, or checker), per-model parameter support or billing (use test-time-compute-controls)."
+    },
+    {
+      "id": "routing",
+      "plugin": "reasoning",
+      "description": "Route easy work to a lighter model and hard work to a stronger model, and keep a required cap. USE FOR: a classifier that sends easy or common work to a lighter model and hard or unusual work to a stronger model. DO NOT USE FOR: reasoning effort (effort), a native tool loop (tool-loop), orchestrator-worker, a separate checker call (checker), one-shot votes (voting), or a paper-only family."
+    },
+    {
+      "id": "test-time-compute-controls",
+      "plugin": "reasoning",
+      "description": "Look up the request fields, error messages, billing meters, and availability for 2026 reasoning models on OpenAI GPT-5.6 and GPT-6, Microsoft Foundry, Anthropic adaptive thinking, Google Gemini thinking_level and thinking_budget on Vertex, and xAI Grok 4.5 to 4.7. USE FOR: which parameter a model accepts, HTTP 400 errors from reasoning fields, a Foundry error about reasoning_effort with tools, budget_tokens rejected on Claude 4.7 or later, thinking_budget and thinking_level conflicts, which usage field counts reasoning tokens, whether a model is preview or generally available on a given platform. DO NOT USE FOR: choosing an effort tier (use effort), agent loop bounds (use orchestrator-worker, routing, voting, or checker), prompt wording (use prompting-strategy-selection)."
+    },
+    {
+      "id": "tool-loop",
+      "plugin": "reasoning",
+      "description": "Run a native tool-calling loop only when a finite stop cap is present. USE FOR: JSON-schema tools, a call id, a tool result, and a required stop cap. DO NOT USE FOR: reasoning effort (effort), orchestrator-worker, routing, a separate checker call (checker), one-shot votes (voting), chain-of-thought, self-consistency, tree or graph search, Reflexion, least-to-most, debate, or mixture-of-agents."
+    },
+    {
+      "id": "voting",
+      "plugin": "reasoning",
+      "description": "Take one-shot parallel votes and fix the sample cap before the wave. USE FOR: one parallel vote wave and a programmatic threshold on a discrete judgment. DO NOT USE FOR: multi-round debate, self-consistency, a checker loop (checker), effort, tool-loop, orchestrator-worker, routing, tree or graph search, Reflexion, least-to-most, or mixture-of-agents."
+    }
+  ]
+}

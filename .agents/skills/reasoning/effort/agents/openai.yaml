@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reasoning Effort"
+  short_description: "Select supported reasoning effort for one bounded model call"
+  default_prompt: "Use $effort to select the supported reasoning effort for one model call."

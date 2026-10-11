@@ -1,0 +1,12 @@
+{
+  "family": "checker",
+  "default": "lightest",
+  "cap": 1,
+  "capName": "stop",
+  "separateCall": true,
+  "sameCallGradesItself": false,
+  "sharedAccountProvesSecondPrincipal": false,
+  "network": false,
+  "apiKey": false,
+  "modelInvocation": false
+}

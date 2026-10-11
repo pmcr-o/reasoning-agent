@@ -1,0 +1,9 @@
+{
+  "family": "tool-loop",
+  "default": "lightest",
+  "cap": 10,
+  "capName": "stop",
+  "network": false,
+  "apiKey": false,
+  "modelInvocation": false
+}

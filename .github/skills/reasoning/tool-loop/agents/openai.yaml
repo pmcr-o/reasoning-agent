@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bounded Tool Loop"
+  short_description: "Define a native tool-calling loop with a finite turn cap"
+  default_prompt: "Use $tool-loop to define a native tool-calling loop with explicit completion and turn limits."

@@ -1,0 +1,6 @@
+{
+  "name": "reasoning",
+  "version": "0.1.0",
+  "description": "Shipping reasoning controls from the 7 October 2026 report, plus selection guidance for effort, prompting strategy, and test-time compute. Each skill defaults to the lightest setting and requires a cap.",
+  "skills": ["./skills/"]
+}

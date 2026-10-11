@@ -1,0 +1,16 @@
+{
+  "name": "reasoning-agent",
+  "owner": {
+    "name": "pmcr-o"
+  },
+  "metadata": {
+    "description": "Reasoning domain orchestrator for routing, checker patterns, effort, voting, tool loops, and test-time compute controls."
+  },
+  "plugins": [
+    {
+      "name": "reasoning",
+      "source": "./.pmcro/plugins/reasoning",
+      "description": "reasoning capabilities owned by reasoning-agent"
+    }
+  ]
+}

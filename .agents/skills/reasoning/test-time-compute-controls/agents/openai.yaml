@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test-Time Compute Controls"
+  short_description: "Verify provider reasoning fields and token usage contracts"
+  default_prompt: "Use $test-time-compute-controls to verify the provider-supported reasoning parameters for this configured model."

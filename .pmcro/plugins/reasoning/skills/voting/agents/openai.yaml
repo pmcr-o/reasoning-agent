@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bounded Voting"
+  short_description: "Set one parallel vote wave and a fixed decision threshold"
+  default_prompt: "Use $voting to define one bounded vote wave and its decision threshold."

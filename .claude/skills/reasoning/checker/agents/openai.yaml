@@ -1,0 +1,4 @@
+interface:
+  display_name: "Independent Checker"
+  short_description: "Run a separate checker call with a fixed finite stop cap"
+  default_prompt: "Use $checker to define a separate checker call with a finite stop cap."

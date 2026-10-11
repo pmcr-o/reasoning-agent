@@ -1,0 +1,7 @@
+{
+  "plugin": "reasoning",
+  "skill": "dialogic-awareness",
+  "agent": "dialogic-awareness-agent",
+  "description": "Visible inter-agent problem/awareness dialogue surface",
+  "registered": true
+}

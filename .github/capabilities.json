@@ -1,0 +1,61 @@
+{
+  "schema": "pmcro.capabilities/v1",
+  "agent": "reasoning-agent",
+  "executionRule": "registered AND runtime-present AND authorized",
+  "manualParity": {
+    "required": true,
+    "rule": "agent and manual terminal use the same scripts with the same arguments, exit codes, and evidence"
+  },
+  "capabilities": [
+    {
+      "plugin": "reasoning",
+      "skill": "checker",
+      "route": "@reasoning-agent /reasoning:checker"
+    },
+    {
+      "plugin": "reasoning",
+      "skill": "dialogic-awareness",
+      "route": "@reasoning-agent /reasoning:dialogic-awareness"
+    },
+    {
+      "plugin": "reasoning",
+      "skill": "effort",
+      "route": "@reasoning-agent /reasoning:effort"
+    },
+    {
+      "plugin": "reasoning",
+      "skill": "intent-refinement",
+      "route": "@reasoning-agent /reasoning:intent-refinement"
+    },
+    {
+      "plugin": "reasoning",
+      "skill": "orchestrator-worker",
+      "route": "@reasoning-agent /reasoning:orchestrator-worker"
+    },
+    {
+      "plugin": "reasoning",
+      "skill": "prompting-strategy-selection",
+      "route": "@reasoning-agent /reasoning:prompting-strategy-selection"
+    },
+    {
+      "plugin": "reasoning",
+      "skill": "routing",
+      "route": "@reasoning-agent /reasoning:routing"
+    },
+    {
+      "plugin": "reasoning",
+      "skill": "test-time-compute-controls",
+      "route": "@reasoning-agent /reasoning:test-time-compute-controls"
+    },
+    {
+      "plugin": "reasoning",
+      "skill": "tool-loop",
+      "route": "@reasoning-agent /reasoning:tool-loop"
+    },
+    {
+      "plugin": "reasoning",
+      "skill": "voting",
+      "route": "@reasoning-agent /reasoning:voting"
+    }
+  ]
+}
