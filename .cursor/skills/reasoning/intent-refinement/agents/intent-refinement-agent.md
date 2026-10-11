@@ -1,4 +1,4 @@
----
+﻿---
 name: intent-refinement-agent
 description: Refine raw seed intent before any PMCR-O routing or planning.
 tools: Read, Grep, Glob

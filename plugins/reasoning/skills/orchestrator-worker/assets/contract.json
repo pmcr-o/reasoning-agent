@@ -1,0 +1,9 @@
+{
+  "family": "orchestrator-worker",
+  "default": "lightest",
+  "cap": 10,
+  "capName": "turn",
+  "network": false,
+  "apiKey": false,
+  "modelInvocation": false
+}

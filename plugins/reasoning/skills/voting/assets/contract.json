@@ -1,0 +1,10 @@
+{
+  "family": "voting",
+  "default": "lightest",
+  "cap": 2,
+  "capName": "sample",
+  "wave": "one-shot",
+  "network": false,
+  "apiKey": false,
+  "modelInvocation": false
+}

@@ -1,0 +1,8 @@
+{
+  "schema": "pmcro.skill-promotion/v1",
+  "skill": "reasoning:dialogic-awareness",
+  "verdict": "PASS",
+  "independentChecker": "eng/check-dialogic-awareness.py",
+  "checkCount": 23,
+  "sourceCandidate": "eng/authoring-dialogic-awareness-001/plugins/reasoning/skills/dialogic-awareness"
+}
